@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Users from './AxiosPart/Users';
 import UsersModify from './AxiosPart/UsersModify';
+import Hello from './FunctionalPart/Hello';
 
 function App() {
   return (
@@ -19,11 +20,7 @@ function App() {
           <li>x Redux</li>
         </ul>
       </header>
-
-      <div>
-        <Welcome name="Joe"/>
-      </div>
-
+      <body>
       <div>
         <h2>Axios GET example</h2>
         <Users />
@@ -32,12 +29,12 @@ function App() {
         <h2>Axios POST example</h2>
         <UsersModify />
       </div>
+      <div>
+        <h2>Functional Component example</h2>
+        <Hello />
+      </div>
+      </body>
     </div>
   );
 }
-
-function Welcome(props){
-  return <h1>Hello, {props.name} and welcome!</h1>;
-}
-
 export default App;
