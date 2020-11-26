@@ -1,6 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
 
+//todo
+
+/*react hooks
+functional effects react
+dynamic functions
+functional based components
+
+Create repo for react and gatsby front-end
+
+
+Functional Components
+React Hooks
+Rest API calls using Axios
+NGRX / Redux
+*/
+
+
 function App() {
   return (
     <div className="App">
@@ -9,15 +26,10 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <div>
+        <p>Testsd</p>
+      </div>
     </div>
   );
 }
