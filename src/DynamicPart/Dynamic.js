@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 
 //below is a list of users/entities that can be selected from
 const dynuser = [
@@ -32,14 +32,14 @@ export default class DynUser extends Component {
 
 	render() {
 		return (
+			//display the usernames if we want to from the comment block below
 			<div>
-				{dynuser.map((user) => (
+				{/* {dynuser.map((user) => (
 					<p key={user.name}>
 						Name: {user.name} Video: {user.video}
 					</p>
-				))}
+				))} */}
 				{this.selectDynUser()} {/* displays the select method */}
-				<p>Select from the names above to get their age and video link</p>
 				{this.selectedDynUser(this.state.chosenDynUser)}
 				{/* displays the selected information */}
 			</div>
@@ -54,27 +54,39 @@ export default class DynUser extends Component {
 			<select
 				onChange={(e) => [this.setState({ chosenDynUser: e.target.value })]}
 			>
-				<option>Select a name</option>
+				<option>Select a name for more information</option>
 				{dynuser.map((user) => (
-					<option key={user.name}>
-						Name: {user.name} Age: {user.age}
-					</option>
+					<option key={user.name}>{user.name}</option>
 				))}
 			</select>
 		);
 	}
 
 	selectedDynUser(chosenDynUser) {
-		// const showMe = chosenDynUser.map((chosen) => (
-		// 	<option>
-		// 		Name: {chosen.name} Age: {chosen.age} video: {chosen.video}
-		// 	</option>
-		// ));
-
-		if (!chosenDynUser) return <p>choose plz</p>;
+		if (!chosenDynUser) return <p>No name is selected, please choose a name</p>;
 
 		// need to convert state to string or something, then use it to get the row from the array
-		console.log(dynuser[3].name);
-		return <span>{chosenDynUser}</span>;
+		//console.log(dynuser[3].name); //this is how you log what you select the index of the object (to get the right array) and then select the array component required
+
+		const samegs = chosenDynUser.toString();
+		//console.log("name:", { samegs });
+
+		const moreInfoDynUser = dynuser
+			.filter((selectedUser) => selectedUser.name == samegs)
+			.map((filteredName) => (
+				<p key={filteredName}>
+					Name: {filteredName.name} <br /> Age: {filteredName.age} <br /> Video:{" "}
+					<a href={filteredName.video}>Link</a>
+				</p>
+			));
+
+		return <span>{moreInfoDynUser}</span>;
 	}
 }
+
+// https://stackoverflow.com/questions/63764175/key-value-pair-string-generation-out-of-an-array-react-js
+// the above link shows how to join array values together into specific formats
+
+// https://stackoverflow.com/questions/39270107/finding-an-object-in-array-and-taking-values-from-that-to-present-in-a-select-li
+// https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
+// the above links are for filter & find within arrays
