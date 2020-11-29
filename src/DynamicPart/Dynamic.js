@@ -34,7 +34,7 @@ export default class DynUser extends Component {
 		return (
 			<div>
 				{dynuser.map((user) => (
-					<p>
+					<p key={user.name}>
 						Name: {user.name} Video: {user.video}
 					</p>
 				))}
@@ -56,7 +56,7 @@ export default class DynUser extends Component {
 			>
 				<option>Select a name</option>
 				{dynuser.map((user) => (
-					<option>
+					<option key={user.name}>
 						Name: {user.name} Age: {user.age}
 					</option>
 				))}
@@ -73,8 +73,8 @@ export default class DynUser extends Component {
 
 		if (!chosenDynUser) return <p>choose plz</p>;
 
-		//const showMe = chosenDynUser.map((chill) => <p>{chill.video}</p>);
-
+		// need to convert state to string or something, then use it to get the row from the array
+		console.log(dynuser[3].name);
 		return <span>{chosenDynUser}</span>;
 	}
 }

@@ -17,7 +17,7 @@ export default class Users extends React.Component{
 
   render(){
     return(
-    <ul>{this.state.users.map(user => <li key="user.id">Name: {user.name}, ID: {user.id}</li>)}</ul>
+    <ul>{this.state.users.map(user => <li key={user.id}>Name: {user.name}, ID: {user.id}</li>)}</ul>
     )
   }
 
