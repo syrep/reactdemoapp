@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 
 
 export const Hello = () => {
-  return(<h2>Hello 'name'</h2>)
+  return(
+    <div>
+    <h2>Hello 'name'</h2>
+    <h3>see <a href="https://www.robinwieruch.de/react-pass-props-to-component">here</a> for tips on props</h3>
+    </div>
+  )
 }
 
 export function Hello2(props){
@@ -29,7 +34,7 @@ export class Hello5 extends Component{
   render(){
     const {work} = this.props
     return(
-      <h2>Hello5 {this.props.work}</h2>
+      <h2>Hello5 {work}</h2>
     )
   }
 }
