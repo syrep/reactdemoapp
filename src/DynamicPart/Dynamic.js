@@ -90,3 +90,6 @@ export default class DynUser extends Component {
 // https://stackoverflow.com/questions/39270107/finding-an-object-in-array-and-taking-values-from-that-to-present-in-a-select-li
 // https://upmostly.com/tutorials/react-filter-filtering-arrays-in-react-with-examples
 // the above links are for filter & find within arrays
+
+// https://www.robinwieruch.de/react-state-array-add-update-remove
+// the above link helps conceptualize arrays
