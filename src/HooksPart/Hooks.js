@@ -9,9 +9,16 @@ import "./Hooks.css";
 
 //need a function component to use hook, classes use "state" instead
 //hooks need to execute in the same order, so we can't use if statements for them
+//usually we use a single hook per object in an array, but it really just depends on what you're doing
+// single hooks then let you do various different changes on a single/multiple event/s, making the data truely uniquely modifiable
 export default function Hooks() {
-  const [countState, setCountState] = useState(0);
-  //default value is placed in the useState brackets
+  const [countState, setCountState] = useState(() => {
+    return 0;
+  });
+  //default value is placed in the useState brackets, it is an array
+  //can also use simple version such as "useState(0);" which can be slower in complicated states, and you can replace 0 with
+  // another function, which means that it will run that external function every time
+  //the expanded function version only runs once at the start, hence why it is used in complicated states
 
   function increaseCount() {
     //setCountState(countState + 1);
@@ -28,11 +35,43 @@ export default function Hooks() {
     setCountState((oldCount) => oldCount - 1);
   }
 
+  const [arrayState, setArrayState] = useState({ number: 12, letter: "f" });
+  const number = arrayState.number;
+  const letter = arrayState.letter;
+  //in this example, we are using an array of data, so the method to play with state will be different
+
+  function increaseNumber() {
+    setArrayState((oldArray) => {
+      return { number: oldArray.number + 1, letter: oldArray.letter };
+      //this returns an array, with the updated value of number, and does math by pulling the old value of number from the
+      // old array, then it proceeds to add "1" to it. Letter must be included, or it gets "dropped" from the state
+
+      //in function based components, we need to add letter. But in class based states, we don't need to include it
+      // as it only writes to the thing being modified. Class components get everything merged, functions just overwrite
+
+      //To overcome this, we can also "spread" out all of the code, which you can see in the decreaseNumber
+    });
+  }
+
+  function decreaseNumber() {
+    setArrayState((oldArray) => {
+      return { ...oldArray, number: oldArray.number - 1 };
+      //This spreads out all of the old array data to be written out to again, then modifies the value we explicitly supply
+    });
+  }
+
   return (
     <div>
       <button onClick={increaseCount}>Up</button>
       <span className="counter">{countState}</span>
       <button onClick={decreaseCount}>Down</button>
+      <div>
+        <p>
+          {number}, {letter}
+        </p>
+        <button onClick={increaseNumber}>Up Number</button>
+        <button onClick={decreaseNumber}>Down Number</button>
+      </div>
     </div>
   );
 }
