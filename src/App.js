@@ -5,6 +5,7 @@ import UsersModify from "./AxiosPart/UsersModify";
 import { Hello, Hello2, Hello3, Hello4, Hello5 } from "./FunctionalPart/Hello";
 import DynUser from "./DynamicPart/Dynamic";
 import { HooksFunc, HookComp } from "./HooksPart/Hooks";
+import ReduxPart from "./reduxpart/Redux";
 
 function App() {
   return (
@@ -51,6 +52,11 @@ function App() {
           <h2>Hooks example</h2>
           <HooksFunc />
           <HookComp />
+        </div>
+        <div>
+          <br />
+          <h2>Redux Example</h2>
+          <ReduxPart />
         </div>
       </div>
     </div>
