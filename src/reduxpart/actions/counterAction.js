@@ -1,11 +1,16 @@
-export const increment = () => {
+export const increment = (deltaAmount = 1) => {
   return {
     type: "Increment",
+    payload: deltaAmount,
   };
 };
-export const decrement = () => {
+//the "prop" getting passed in (deltaAmount) now has a default value
+// set to "1", however if present in the dispatch(action(XXX)),
+// it will pass the value through
+export const decrement = (deltaAmount = 1) => {
   return {
     type: "Decrement",
+    payload: deltaAmount,
   };
 };
 //these functions just give the type of actions a name that can be returned,

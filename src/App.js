@@ -21,7 +21,7 @@ function App() {
           <li>Dynamic Functions</li>
           <li>React Hooks</li>
           <li>x Plotly.js</li>
-          <li>x Redux</li>
+          <li>Redux</li>
         </ul>
       </header>
       <div className="subheader">

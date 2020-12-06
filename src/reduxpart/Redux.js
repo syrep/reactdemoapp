@@ -19,17 +19,34 @@ export default function ReduxPart() {
 
   //remember when calling the action, it is used like a function, so include the "()"
 
-  console.log(loginRedux);
+  //console.log(loginRedux);
+
   return (
     <div>
       <p>Counter: {counterRedux}</p>
-      <p>Login State: {loginRedux}</p>
+      <div>
+        Login State:
+        {loginRedux ? (
+          <div>
+            <p>
+              Logged In, view the{" "}
+              <a href="https://www.youtube.com/watch?v=CVpUuw9XSjY">video</a>
+            </p>
+          </div>
+        ) : (
+          "Not Logged In"
+        )}
+      </div>
       <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(increment(5))}>+ 5</button>
       <button onClick={() => dispatch(decrement())}>-</button>
-      {loginRedux ? <p>Logged In</p> : <p>Not Logged In</p>}
+
       <button onClick={() => dispatch(login())}>Login</button>
       <button onClick={() => dispatch(logout())}>Logout</button>
     </div>
   );
 }
 //Remember to check index.js for the other provider parts of Redux
+
+//think about this when looking to prevent wasted renders
+// https://mgmarlow.github.io/understanding-useselector-memoization
