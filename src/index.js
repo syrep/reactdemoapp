@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { createStore } from "redux";
 import allReducers from "./reduxpart/reducers/combinedReducers";
-import Provider from "react-redux";
+import { Provider } from "react-redux";
 
 const store = createStore(allReducers);
 //putting the store outside so when the actual file is needed, we can access it
