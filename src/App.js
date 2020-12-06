@@ -6,6 +6,7 @@ import { Hello, Hello2, Hello3, Hello4, Hello5 } from "./FunctionalPart/Hello";
 import DynUser from "./DynamicPart/Dynamic";
 import { HooksFunc, HookComp } from "./HooksPart/Hooks";
 import ReduxPart from "./reduxpart/Redux";
+import PlotlyJSPart from "./plotlyjspart/plotly";
 
 function App() {
   return (
@@ -57,6 +58,11 @@ function App() {
           <br />
           <h2>Redux Example</h2>
           <ReduxPart />
+        </div>
+        <div>
+          <br />
+          <h2>Plotly.js Example</h2>
+          <PlotlyJSPart />
         </div>
       </div>
     </div>
