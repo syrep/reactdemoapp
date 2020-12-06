@@ -1,4 +1,5 @@
 //apparently convention is lowercase folder names?
+import { useSelector } from "react-redux";
 
 //General workflow:
 // Store: stores the state
@@ -7,9 +8,12 @@
 // Dispatch: how you actually call the action you want to use
 
 export default function ReduxPart() {
+  const counter = useSelector((state) => state.counter);
+
   return (
     <div>
-      <p>hi</p>
+      <p>hi {counter}</p>
     </div>
   );
 }
+//Remember to check index.js for the other provider parts of Redux
