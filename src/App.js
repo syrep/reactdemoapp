@@ -21,7 +21,7 @@ function App() {
           <li>Functional Components</li>
           <li>Dynamic Functions</li>
           <li>React Hooks</li>
-          <li>x Plotly.js</li>
+          <li>Plotly.js</li>
           <li>Redux</li>
         </ul>
       </header>
