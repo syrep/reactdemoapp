@@ -5,7 +5,7 @@ const loginReducer = (state = false, action) => {
     case "Logout":
       return false;
     default:
-      return false;
+      return state;
     //default is just in case it fails in some way, we force a logout
   }
 };
